@@ -1,0 +1,59 @@
+NOTES:
+**********
+
+
+Integrated settings for SMF 1.1RC2
+-------------------------------------
+
+At several locations within the SMF code, it's possible to integrate function calls. This can be done by inserting values to the settings table:
+   
+	integrate_pre_include
+	integrate_pre_load
+	integrate_verify_user
+	integrate_validate_login
+	integrate_login
+	integrate_logout
+	integrate_activate
+	integrate_fix_url
+	integrate_verify_password
+	integrate_change_email
+	integrate_reset_pass
+	integrate_activate
+	integrate_delete_member
+	integrate_register
+	integrate_outgoing_email
+	integrate_change_member_data
+	integrate_redirect
+	integrate_buffer
+	integrate_exit
+
+Each of these variables can be set to a function name, that is called whenever the related event occurs.
+
+
+SMF settings
+----------------------
+'integrate_pre_include' => '/path/to/include/file.php',
+'integrate_pre_load' => 'preloadFunction',
+'integrate_delete_member' => 'helloWorld',
+'integrate_pre_load' => 'functionName',
+'integrate_verify_user' => 'functionName',
+'integrate_validate_login' => 'functionName',
+'integrate_login' => 'functionName',
+'integrate_logout' => 'functionName',
+'integrate_activate' => 'functionName',
+'integrate_fix_url' => 'functionName',
+'integrate_verify_password' => 'functionName',
+'integrate_change_email' => 'functionName',
+'integrate_reset_pass' => 'functionName',
+'integrate_activate' => 'functionName',
+'integrate_magic_quotes' => 'functionName',
+'integrate_change_email' => 'functionName',
+'integrate_reset_pass' => 'functionName',
+'integrate_verify_password' => 'functionName',
+'integrate_reset_pass' => 'functionName',
+'integrate_delete_member' => 'functionName',
+'integrate_register' => 'functionName',
+'integrate_redirect' => 'functionName',
+'integrate_buffer' => 'functionName',
+'integrate_exit' => 'functionName',
+'integrate_egg_nog' => 'functionName',

@@ -1,0 +1,93 @@
+[+maxigallery.config.display:is=`pictureview`:then=`
+	[+maxigallery.managebutton:isnot=``:then=`
+
+		<center>[+maxigallery.managebutton+]</center>
+		<br />
+	
+	`+]
+`+]
+
+<div class="picturecontainer">
+
+	<p class="navigation">
+		[+maxigallery.counter:is=`1`:or:is=`0`:then=`
+
+			[+maxigallery.strings.previous+] |
+
+		`:else=`
+
+			<a href="[+maxigallery.previous_pic_url+]">[+maxigallery.strings.previous+]</a> | 
+
+		`+]
+
+			<a href="[+maxigallery.index_url+]">[+maxigallery.strings.index+]</a> | 		
+
+		[+maxigallery.counter:is=`[+maxigallery.total_pics_count+]`:then=`
+
+			[+maxigallery.strings.next+]
+
+		`:else=`
+
+			<a href="[+maxigallery.next_pic_url+]">[+maxigallery.strings.next+]</a>
+
+		`+]
+	</p>
+
+	<p class="picturecount">[+maxigallery.strings.picture+] [+maxigallery.counter+] / [+maxigallery.total_pics_count+]</p>
+
+	[+maxigallery.total_pics_count:isnot=`0`:then=`
+	
+	<div class="picture">
+	
+	[+maxigallery.big_img_linkstyle:is=`slidebox`:then=` 
+
+		<a href="[(base_url)][+maxigallery.path_to_gal+]big_[+maxigallery.picture.filename+]" rel="lightbox" title="[+maxigallery.picture.title:htmlent+] - [+maxigallery.picture.descr:htmlent+]">
+
+	`+]
+
+	[+maxigallery.big_img_linkstyle:is=`lightboxv2`:then=` 
+
+		<a href="[(base_url)][+maxigallery.path_to_gal+]big_[+maxigallery.picture.filename+]" rel="lightbox" title="[+maxigallery.picture.title:htmlent+] - [+maxigallery.picture.descr:htmlent+]">
+
+	`+]
+
+	[+maxigallery.big_img_linkstyle:is=`slimbox`:then=` 
+
+		<a href="[(base_url)][+maxigallery.path_to_gal+]big_[+maxigallery.picture.filename+]" rel="lightbox" title="[+maxigallery.picture.title:htmlent+] - [+maxigallery.picture.descr:htmlent+]">
+
+	`+]
+
+	[+maxigallery.big_img_linkstyle:is=`popup`:then=` 
+
+		<a href="javascript:void(0);" onClick="javascript:openWindow('[(base_url)][+maxigallery.path_to_gal+]big_[+maxigallery.picture.filename+]','[+maxigallery.picture.title:htmlent+]',[+maxigallery.picture_height_big+],[+maxigallery.picture_width_big+],'gallery');" title="[+maxigallery.strings.click_to_open_original+]">
+
+	`+]
+
+	[+maxigallery.big_img_linkstyle:is=`external`:then=` 
+
+		<a href="[(base_url)][+maxigallery.path_to_gal+]big_[+maxigallery.picture.filename+]" rel="external" title="[+maxigallery.strings.click_to_open_original+]">
+
+	`+]
+
+	[+maxigallery.keep_bigimg:is=`0`:then=`
+
+		<a href="[+maxigallery.index_url+]" title="[+maxigallery.strings.click_to_go_back+]">
+
+	`+]
+
+		<img src="[(base_url)][+maxigallery.path_to_gal+][+maxigallery.picture.filename+]" class="imageview" alt="[+maxigallery.strings.date+] : [+maxigallery.picture.date+]" />
+
+		</a>
+		
+	</div>
+	
+	`+]
+	
+	[+maxigallery.picture.title:isnot=``:then=`
+		<p class="title">[+maxigallery.picture.title:htmlent+]</p>
+	`+]
+	[+maxigallery.picture.descr:isnot=``:then=`
+		<p class="description">[+maxigallery.picture.descr:htmlent+]</p>
+	`+]
+	
+</div>

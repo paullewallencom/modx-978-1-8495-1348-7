@@ -1,0 +1,84 @@
+/**
+ *	Name:	Style sheet for SMF Module
+ *	Author:	Raymond Irving
+ */
+
+body {
+	margin:			0px;
+	background-repeat:repeat-x;
+ 	background-image:url('images/body.png');
+}
+
+body, td {
+	font-family:	verdana,arial;
+	font-size:		12px;
+}
+
+a {
+	color:			#990000;
+	text-decoration:none;
+	font-family:	verdana,arial;
+	font-size:		12px;
+}
+
+a:hover {
+	color:			#0000F0;
+}
+
+.top{
+	width:			100%;
+	border-top:		1px solid #000099;
+}
+
+.top img {
+	float:			left;
+}
+
+.toolbar {
+	margin-right:	20px;
+	float:			right;
+	height:			60px;
+	line-height:	60px;
+}
+.toolbar a {
+	color:			#ffffff;
+}
+
+.content {
+	cursor:			default;
+	margin:			20px 0 0 50px;
+}
+
+.content li {
+	margin-bottom:	10px;
+}
+
+.menutitle {
+	color:			#990000;
+	font-weight:	bold;
+}
+
+.menutitle span {
+	cursor:			pointer;
+	display:		block;
+	font-size:		15px;
+	font-weight:	bold;
+	width:			300px;
+	border-bottom:	1px dotted #e0e0e0;
+}
+
+.subtitle {
+	display:		block;
+	font-size:		15px;
+	font-weight:	bold;
+	width:			350px;
+	border-bottom:	1px solid #c0c0c0;
+	margin:			10px 0 10px;
+}
+
+.comment {
+	display:		block;
+	color:			#808080;
+	margin:			0 0 0 50px;
+	width:			350px;
+}

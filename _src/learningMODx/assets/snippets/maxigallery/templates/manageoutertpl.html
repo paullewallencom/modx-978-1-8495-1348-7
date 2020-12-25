@@ -1,0 +1,68 @@
+<div class="managecontainer">
+	<a name="top"></a>
+	<p>
+		[+maxigallery.messages+]
+	</p>
+	<p>
+		[+maxigallery.strings.gallery_description+]:
+		<br />
+		[+maxigallery.pageinfo.description+]
+	</p>
+	<div class="pictureform">
+		<form action="[+maxigallery.urlaction+]" method="post" name="editform" id="editform">
+			[+maxigallery.hiddenfields.mainform+]
+	
+			<input type="button" value="[+maxigallery.strings.back_to_normal_view+]" onclick="location.href='[+maxigallery.urlback+]'"/>
+			<input type="submit" value="[+maxigallery.strings.save_changes+]" />
+			<input type="button" value="[+maxigallery.strings.sort_pictures+]" id="dragButton" onclick="openDragWin('[+maxigallery.urldragsort+]', 600, 500)" />
+	
+			<br /><br />
+			<a href="[+maxigallery.urlaction+]#uploadform">[+maxigallery.strings.jump_to_upload_form+]</a>
+			<br /><br />
+		
+			[+maxigallery.managepictures+]
+		
+		</form>
+	</div>
+	
+	<div class="uploadform">
+		<a href="[+maxigallery.urlaction+]#top">[+maxigallery.strings.back_to_top+]</a>
+		<a name="uploadform"></a>
+		<br />
+		[+maxigallery.pics_allowed_count:isnot=``:then=`
+			<br />[+maxigallery.strings.number_allowed+]: [+maxigallery.pics_allowed_count+]
+		`+]
+		[+maxigallery.pics_allowed_count:isnot=`0`:then=`
+			<br /><br />
+			<form action="[+maxigallery.urlaction+]" method="post" enctype="multipart/form-data" name="uploadform">
+				[+maxigallery.hiddenfields.uploadform+]
+
+				[+maxigallery.uploadpictures+]
+	
+				<br class="clearboth" />
+	
+				<input type="submit" value="[+maxigallery.strings.upload_pictures+]" />
+			</form>
+		`+]
+	</div>
+	<br class="clearboth" />
+	<hr />
+	
+	<div class="deleteform">
+		<form action="[+maxigallery.urlaction+]" method="post" name="deleteform">
+			[+maxigallery.hiddenfields.deleteform+]
+			<input type="submit" value="[+maxigallery.strings.delete_all_pictures+]" onClick="return confirm('[+maxigallery.strings.delete_all_confirmation+]')" />
+		</form>
+	</div>
+	
+	<div class="synchform">
+    	<form action="[+maxigallery.urlaction+]" method="post" name="synchform">
+			<input type="hidden" name="action" value="gallery_synch" /><input type="hidden" name="mode" value="admin" />
+            <input type="submit" value="[+maxigallery.strings.resynch+]" />
+        </form>
+    </div>
+    
+	<br class="clearboth" />
+	<hr />
+	    
+</div>

@@ -1,0 +1,59 @@
+[+maxigallery.embedtype:is=`smoothgallery`:then=` 
+	<div class="imageElement">
+	<h3>[+maxigallery.picture.title:htmlent+]</h3>
+	<p>[+maxigallery.picture.descr:htmlent+]</p>
+	<a href="[+maxigallery.picture_link_url+]" title="[+maxigallery.strings.click_to_zoom+]" class="open"></a>
+	<img src="[(base_url)][+maxigallery.path_to_gal+][+maxigallery.picture.filename+]" class="full" />
+	<img src="[(base_url)][+maxigallery.path_to_gal+]tn_[+maxigallery.picture.filename+]" class="thumbnail" />
+	</div>
+`+]
+
+[+maxigallery.embedtype:isnot=`smoothgallery`:then=`
+ 
+<li>
+[+maxigallery.embedtype:is=`slidebox`:then=` 
+
+	<a href="[(base_url)][+maxigallery.path_to_gal+][+maxigallery.picture.filename+]" rel="lightbox_[+maxigallery.path_to_gal+]gallery">
+
+`+]
+
+[+maxigallery.embedtype:is=`lightboxv2`:then=` 
+
+	<a href="[(base_url)][+maxigallery.path_to_gal+][+maxigallery.picture.filename+]" rel="lightbox[maxigallery]" title="[+maxigallery.picture.title:htmlent+] - [+maxigallery.picture.descr:htmlent+]">
+
+`+]
+
+[+maxigallery.embedtype:is=`slimbox`:then=` 
+
+	<a href="[(base_url)][+maxigallery.path_to_gal+][+maxigallery.picture.filename+]" rel="lightbox[maxigallery]" title="[+maxigallery.picture.title:htmlent+] - [+maxigallery.picture.descr:htmlent+]">
+
+`+]
+
+[+maxigallery.embedtype:is=`popup`:then=` 
+
+	<a href="javascript:void(0);" onClick="javascript:openWindow('[(base_url)][+maxigallery.path_to_gal+][+maxigallery.picture.filename+]','[+maxigallery.picture.title:htmlent+]',[+maxigallery.picture_height_normal+],[+maxigallery.picture_width_normal+],'gallery');">
+
+`+]
+
+[+maxigallery.embedtype:is=`external`:then=` 
+
+	<a href="[(base_url)][+maxigallery.path_to_gal+][+maxigallery.picture.filename+]" rel="external">
+
+`+]
+
+[+maxigallery.embedtype:is=``:then=`
+	
+	<a href="[+maxigallery.picture_link_url+]">
+
+`+]
+	
+	 	<img src="[(base_url)][+maxigallery.path_to_gal+]tn_[+maxigallery.picture.filename+]" class="thumbnail" title="[+maxigallery.picture.title:htmlent+] [+maxigallery.strings.click_to_zoom+]" alt="[+maxigallery.picture.title:htmlent+] [+maxigallery.strings.click_to_zoom+]" />
+	
+	</a>
+	[+maxigallery.picture.title:isnot=``:then=`
+		<p style="width: [+maxigallery.picture_width_thumb+]px;">
+		[+maxigallery.picture.title:htmlent+]
+		</p>
+	`+]
+</li>
+`+]

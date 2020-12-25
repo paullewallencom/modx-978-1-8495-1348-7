@@ -1,0 +1,62 @@
+[+maxigallery.managebutton:isnot=``:then=`
+
+	<center>[+maxigallery.managebutton+]</center>
+	<br />
+	
+`+]
+
+[+maxigallery.childgalleries:isnot=``:then=`
+	<div class="childscontainer">
+		<ul class="thumbs">
+			[+maxigallery.childgalleries+]
+		</ul>
+	</div>
+	
+`+]
+
+[+maxigallery.pagenumbers:isnot=``:then=`
+	
+	[+maxigallery.pagecount:isnot=`1`:then=`
+
+		<div class="pagenumbers">
+	
+		[+maxigallery.currentpage:is=`1`:then=`
+
+			[+maxigallery.strings.previous+] |
+
+		`:else=`
+		
+			<a href="[+maxigallery.previous_page_url+]">[+maxigallery.strings.previous+]</a> |
+		`+]
+	
+		[+maxigallery.pagenumbers+]
+	
+		[+maxigallery.currentpage:is=`[+maxigallery.pagecount+]`:then=`
+
+			[+maxigallery.strings.next+]
+
+		`:else=`
+	
+			<a href="[+maxigallery.next_page_url+]">[+maxigallery.strings.next+]</a> 
+	
+		`+]
+			
+		</div>
+	`+]
+`+]
+
+[+maxigallery.embedtype:is=`smoothgallery`:then=`
+	<div id="myGallery[+maxigallery.config.smoothgallery_id:isnot=`-1`:then=`[+maxigallery.config.smoothgallery_id+]`:else=`[+maxigallery.pageinfo.id+]`+]">
+	[+maxigallery.pictures+]
+	</div>
+`+]
+
+[+maxigallery.embedtype:isnot=`smoothgallery`:then=`
+	[+maxigallery.pictures:isnot=``:then=`
+		<div class="thumbscontainer">
+			<ul class="thumbs">
+				[+maxigallery.pictures+]
+			</ul>
+		</div>
+	`+]
+`+]

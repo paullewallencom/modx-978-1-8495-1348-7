@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>SMF Module</title>
+<base href="[+moduleurl+]" />
+<script type="text/javascript" src="behaviour.js"></script>
+<script type="text/javascript" src="common.behaviour.js"></script>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<form name="module" method="post">
+<input name="evt" type="hidden" value="" />
+<div class="top">
+	<img src="images/smf_module.png" width="360" height="65" />
+	<div class="toolbar" ><a id="logout" style="color:#808080;" href="javascript:;" eventname="onlogoutadmin" title="Logout SMF session">Logout</a> | <a style="color:#808080;" href="[+baseurl+]manager/index.php?a=108&amp;id=[+id+]"><nobr>Module Settings</nobr></a>&nbsp;</div>
+</div>
+<div style="clear:both">&nbsp;</div>
+<div class="content">
+	[+content+]
+</div>
+<div>&nbsp; </div>
+</form>
+</body>
+</html>

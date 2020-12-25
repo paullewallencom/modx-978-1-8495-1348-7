@@ -1,0 +1,31 @@
+<div class="managepicturecontainer">
+	<input type="hidden" name="[+maxigallery.fieldnames.pictureid+]" value="[+maxigallery.picture.id+]"/>
+	<input type="hidden" name="[+maxigallery.fieldnames.modified+]" id="[+maxigallery.fieldnames.modified+]" value="no"/>
+	<div class="managepicture">
+		<a href="[(base_url)][+maxigallery.path_to_gal+][+maxigallery.picture.filename+]" target=_new>
+			<img src="[(base_url)][+maxigallery.path_to_gal+]tn_[+maxigallery.picture.filename+]" alt="[+maxigallery.strings.click_to_zoom+]"/>
+		</a>
+	</div>
+	<div class="shortfields">
+		ID: [+maxigallery.picture.id+]
+		<br />
+		[+maxigallery.strings.delete+]:
+		<input type="checkbox" name="[+maxigallery.fieldnames.delete+]" value="yes" title="[+maxigallery.strings.check_to_delete_this_picture+]"/>
+		<br />
+		[+maxigallery.strings.hide+]:
+		<input type="checkbox" name="[+maxigallery.fieldnames.hide+]" value="yes" title="[+maxigallery.strings.check_to_hide_this_picture+]" onClick="document.editform.[+maxigallery.fieldnames.modified+].value='yes'" [+maxigallery.picture.hide:is=`1`:then=`checked="checked"`+]/>
+		<br />
+		[+maxigallery.strings.position+]:
+		<input type="text" size="3" name="[+maxigallery.fieldnames.position+]" id="[+maxigallery.fieldnames.position+]" onKeyDown="document.editform.[+maxigallery.fieldnames.modified+].value='yes'" value="[+maxigallery.picture.pos+]"/>
+	</div>
+	<br class="clearboth"/>
+	[+maxigallery.strings.title+]:
+	<br/>
+	<textarea name="[+maxigallery.fieldnames.title+]" rows="2" cols="40" onKeyDown="document.editform.[+maxigallery.fieldnames.modified+].value='yes'">[+maxigallery.picture.title:htmlent+]</textarea>
+	<br />
+	[+maxigallery.strings.description+]:
+	<br/>
+	<textarea name="[+maxigallery.fieldnames.description+]" rows="4" cols="40" onKeyDown="document.editform.[+maxigallery.fieldnames.modified+].value='yes'">[+maxigallery.picture.descr:htmlent+]</textarea>
+	<br />
+	<hr />
+</div>

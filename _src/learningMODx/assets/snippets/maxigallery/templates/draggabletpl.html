@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<style type="text/css">
+body {
+	font-size: 10pt !important;
+	margin: 10px 0 0 0 !important;
+	background-image: none !important;
+}
+img, .draggableTN {
+	display: inline !important;
+	cursor: move;
+}
+img {
+	margin: 10px !important;
+	padding: 0 !important;
+}
+p {
+	margin: 1em 0 1em 0 !important;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="[(base_url)]manager/media/style/MODxLight/style.css" />
+<link rel="stylesheet" type="text/css" href="[(base_url)]assets/site/css/site.css" />
+<!-- This will work with Scriptaculous or mootools. Select either prototype.js + scriptaculous.js, OR mootools. The mootools version doesn't work with IE7 for some reason... -->
+<!--script src="[(base_url)][+maxigallery.path+]js/mooSortables.js" type="text/javascript"> </script-->
+<script src="[(base_url)][+maxigallery.path+]js/prototype.js" type="text/javascript"> </script>
+<script src="[(base_url)][+maxigallery.path+]js/scriptaculous.js?load=effects,dragdrop" type="text/javascript"> </script>
+<script type="text/javascript">
+		 // <![CDATA[
+		 function loadPics()
+		 {
+		 	document.getElementById('dragform').appendChild(opener.parseImages(document));
+			
+			// For mootools...
+			if (typeof Sortables != 'undefined')
+			{
+				// serialising isn't built in, so we must add it ourselves.
+				Element.extend({
+					serialize: function(key) {
+						var ret = [], key = key || this.id;
+						$A(this.childNodes).each(function(el, i){
+							if(el.nodeType == 1) ret.push(key+'['+i+']=' + el.id);
+						});
+						return ret.join('&');
+					}
+				});
+				
+				new Sortables($S('.draggableTN'));
+			}  // Scriptaculous
+			else if (typeof Sortable != 'undefined')
+			{
+				Sortable.create("dragSet", {tag: "img"});
+			}
+		}
+		
+		function serializeList()
+		{
+			// for mootools
+			if (typeof Sortables != 'undefined')
+			{
+				return $('dragSet').serialize();
+			}
+			// for scriptaculous
+			else if (typeof Sortable != 'undefined')
+			{
+				var list = Sortable.serialize("dragSet", {tag: "img"});
+				// make string compatible with that returned by mootools
+				return list.replace(/=/g, "=_");
+			}
+		}
+		// ]]>
+	 </script>
+</head>
+<body onload="loadPics()">
+<div class="sectionHeader">Sort images</div>
+<div class="sectionBody">
+  <div id="mgNav">
+    <ul>
+      <li><a href="javascript: void(0)" onClick="javascript:opener.handleSubmit(serializeList());" title="[+maxigallery.strings.save_changes+]"><span>[+maxigallery.strings.save_changes+]</span></a></li>
+      <li><a href="javascript: void(0)" onClick="javascript:self.close();" title="[+maxigallery.strings.cancel+]"><span>[+maxigallery.strings.cancel+]</span></a></li>
+    </ul>
+  </div>
+  <p>[+maxigallery.strings.dragdesc+]</p>
+  <form id="dragform" action="#">
+  </form>
+  <p><a href="" onclick="window.scrollTo(0,0);return false;">[+maxigallery.strings.back_to_top+]</a></p>
+</div>
+</body>
+</html>
